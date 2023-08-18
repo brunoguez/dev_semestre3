@@ -1,0 +1,85 @@
+package br.fatec.main;
+
+import java.util.Scanner;
+
+public class Principal {
+	
+	public static void main(String[] args) {
+
+		String msg = "Selecione uma das opções abaixo:"
+				+ "\n1-) Faça um programa que recebe dois valores do usuário e exiba o produto deles."
+				+ "\n\n2-) Faça um programa que receba nome do usuário, o produto que ele quer comprar, \no valor desse produto unitário e a quantidade que ele quer desse produto. \nFaça o cálculo e mostre todas as informações ao final. "
+				+ "\n\n3-) Faça um programa que receba o valor de um produto comprado e a porcentagem de \nrevenda. Exiba o que ele pagou no produto e o valor para revenda. "
+				+ "\n\n4-) Faça um programa que receba o valor e a quantidade de um produto. Forneça 5% \nde desconto na compra final desse produto. Exiba o valor real e o valor \ncom desconto. "
+				+ "\n\n0-) Sair";
+
+		int opcao = -1;
+
+		while (opcao != 0) {
+			System.out.println(msg);
+			opcao = solicitaNumero("");
+			switch (opcao) {
+			case 1: {
+				ex1();
+				break;
+			}
+			case 2: {
+				ex2();
+				break;
+			}
+			case 3: {
+				ex3();
+				break;
+			}
+			case 4: {
+				ex4();
+				break;
+			}
+			}
+		}
+
+	}
+
+	private static void ex4() {
+		// TODO Auto-generated method stub
+
+	}
+
+	private static void ex3() {
+		// TODO Auto-generated method stub
+
+	}
+
+	private static void ex2() {
+		// TODO Auto-generated method stub
+
+	}
+
+	private void ex1() {
+		int value1 = solicitaNumero("Digite o primeiro valor");
+		int value2 = solicitaNumero("Digite o segundo valor");
+		System.out.println("A soma de " + value1 + " e " + value2 + " é " + (value1 + value2));
+		System.out.println("Precione Enter para continuar");
+	}
+
+	private static int solicitaNumero(String msg) {
+		Scanner scanner = new Scanner(System.in);
+		int response = 0;
+		do {
+			try {
+				System.out.println(msg);
+				response = scanner.nextInt();
+				break;
+			} catch (Exception e) {
+				scanner.nextLine();
+				System.out.println("\nValor ditado é inválido");
+			}
+		} while (true);
+		System.out.println("Closed");
+		scanner.close();
+		return response;
+	}
+
+}
+
+

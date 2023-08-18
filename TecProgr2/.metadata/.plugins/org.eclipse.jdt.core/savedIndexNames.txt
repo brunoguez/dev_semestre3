@@ -1,0 +1,4 @@
+INDEX VERSION 1.132+C:\Users\Bruno\Documents\GitHub\dev_semestre3\TecProgr2\.metadata\.plugins\org.eclipse.jdt.core
+1865797976.index
+2163096569.index
+1620377643.index
