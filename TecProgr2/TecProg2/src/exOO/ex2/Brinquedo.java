@@ -5,6 +5,7 @@ public class Brinquedo extends Produto{
    public int faixaEtaria;
    public String mostrar(String nome, int faixaEtaria){
        this.faixaEtaria = faixaEtaria;
+       this.nome = nome;
        return "Dados do brinquedo:"
                + "\nNome: " + this.nome
                + "\nMarca: " + this.marca

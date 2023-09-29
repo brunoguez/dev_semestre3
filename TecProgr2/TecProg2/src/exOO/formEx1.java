@@ -6,6 +6,10 @@ package exOO;
 
 import exOO.ex1.Cachorro;
 import exOO.ex1.Gato;
+import exOO.ex2.Bola;
+import exOO.ex2.BolaFutebol;
+import exOO.ex2.Brinquedo;
+import static java.lang.System.out;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,9 +18,10 @@ import javax.swing.JOptionPane;
  */
 public class formEx1 extends javax.swing.JFrame {
 
-    private static boolean isInteger(String str) {
+    public static boolean isInteger(String str) {
         return str != null && str.matches("[0-9]*");
     }
+
     /**
      * Creates new form formEx1
      */
@@ -42,6 +47,19 @@ public class formEx1 extends javax.swing.JFrame {
         cmbTipo = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         txtIdade = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        txtNomeBrinquedo = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        txtMarcaBrinquedo = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        cmbFaixaBrinquedo = new javax.swing.JComboBox<>();
+        jLabel8 = new javax.swing.JLabel();
+        btnBrinquedo = new javax.swing.JButton();
+        cmbTipoBrinquedo = new javax.swing.JComboBox<>();
+        jLabel9 = new javax.swing.JLabel();
+        cmbTamanhoBrinquedo = new javax.swing.JComboBox<>();
+        jLabel10 = new javax.swing.JLabel();
+        cmbQtdGomos = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -62,32 +80,90 @@ public class formEx1 extends javax.swing.JFrame {
 
         jLabel4.setText("Idade");
 
+        jLabel5.setText("Nome");
+
+        jLabel6.setText("Marca");
+
+        jLabel7.setText("Faixa Etária");
+
+        cmbFaixaBrinquedo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2", "4", "6" }));
+        cmbFaixaBrinquedo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbFaixaBrinquedoActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setText("Tamanho");
+
+        btnBrinquedo.setText("Brinquedo!");
+        btnBrinquedo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBrinquedoActionPerformed(evt);
+            }
+        });
+
+        cmbTipoBrinquedo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Brinquedo", "Bola de Futebol" }));
+
+        jLabel9.setText("Tipo");
+
+        cmbTamanhoBrinquedo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
+
+        jLabel10.setText("Quantidade de gomos");
+
+        cmbQtdGomos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "20", "25", "30", "40" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel10)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(cmbTipo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txtRaca, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txtNome))
-                        .addComponent(btnAnimal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(50, Short.MAX_VALUE))
+                        .addComponent(cmbQtdGomos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtRaca))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtNome))
+                    .addComponent(btnAnimal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cmbTamanhoBrinquedo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(txtIdade))
+                            .addComponent(cmbTipo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cmbFaixaBrinquedo, 0, 195, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtMarcaBrinquedo)
+                            .addComponent(txtNomeBrinquedo)))
+                    .addComponent(btnBrinquedo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cmbTipoBrinquedo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(74, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -110,49 +186,122 @@ public class formEx1 extends javax.swing.JFrame {
                     .addComponent(txtIdade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAnimal)
-                .addContainerGap(244, Short.MAX_VALUE))
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cmbTipoBrinquedo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(txtNomeBrinquedo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(txtMarcaBrinquedo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cmbFaixaBrinquedo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(cmbTamanhoBrinquedo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(cmbQtdGomos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(60, 60, 60)
+                .addComponent(btnBrinquedo)
+                .addContainerGap(169, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public static void msg(String mensagem) {
+        if (!mensagem.isEmpty()) {
+            JOptionPane.showMessageDialog(null, mensagem);
+        }
+    }
+
     private void btnAnimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnimalActionPerformed
-        if(txtNome.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null,"Faltando o nome");
+        if (txtNome.getText().isEmpty()) {
+            msg("Faltando o nome");
             return;
         }
-        if(txtRaca.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null,"Faltando a raça");
+        if (txtRaca.getText().isEmpty()) {
+            msg("Faltando a raça");
             return;
         }
-        if(txtIdade.getText().isEmpty() || !isInteger(txtIdade.getText())) {
-            JOptionPane.showMessageDialog(null,"Faltando a idade");
+        if (txtIdade.getText().isEmpty() || !isInteger(txtIdade.getText())) {
+            msg("Faltando a idade");
             return;
         }
-        String msg = "";
-        switch(cmbTipo.getSelectedIndex()){
+        String mensag = "";
+        switch (cmbTipo.getSelectedIndex()) {
             case 0:
-                Cachorro cachorro = new Cachorro(txtNome.getText(),txtRaca.getText());
+                Cachorro cachorro = new Cachorro(txtNome.getText(), txtRaca.getText());
                 cachorro.setIdade(Integer.parseInt(txtIdade.getText()));
-                msg = "Cachoro escolhido: "
+                mensag = "Cachoro escolhido: "
                         + "\nNome: " + cachorro.nome
                         + "\nRaça: " + cachorro.raca
                         + "\n"
                         + cachorro.mostrar();
-                JOptionPane.showMessageDialog(null,msg);
+                msg(mensag);
                 break;
             case 1:
-                Gato gato = new Gato(txtNome.getText(),txtRaca.getText());
+                Gato gato = new Gato(txtNome.getText(), txtRaca.getText());
                 gato.setQtdVidas(Integer.parseInt(txtIdade.getText()));
-                msg = "Gato escolhido: "
+                mensag = "Gato escolhido: "
                         + "\nNome: " + gato.nome
                         + "\nRaça: " + gato.raca
                         + "\n"
                         + gato.mostrar();
-                JOptionPane.showMessageDialog(null,msg);
+                msg(mensag);
                 break;
         }
     }//GEN-LAST:event_btnAnimalActionPerformed
+
+    private void btnBrinquedoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBrinquedoActionPerformed
+        String nome = txtNomeBrinquedo.getText();
+        String marca = txtMarcaBrinquedo.getText();
+        out.println(cmbFaixaBrinquedo.getSelectedItem());
+                
+        Integer faixaEtaria = Integer.parseInt(cmbFaixaBrinquedo.getSelectedItem().toString());
+        String qtGomos = (String)cmbQtdGomos.getSelectedItem();
+        Integer tamanho = Integer.parseInt(cmbTamanhoBrinquedo.getSelectedItem().toString());
+
+        if (nome.isEmpty()) {
+            msg("Faltando o nome");
+            return;
+        }
+        if (marca.isEmpty()) {
+            msg("Faltando a marca");
+            return;
+        }
+
+        switch (cmbTipoBrinquedo.getSelectedIndex()) {
+            case 0:
+                //Brinquedo
+                Brinquedo brinquedo = new Brinquedo();
+                brinquedo.marca = marca;
+                msg(brinquedo.mostrar(nome, faixaEtaria));
+                break;
+            case 1:
+                //Bola
+                BolaFutebol bola = new BolaFutebol();
+                bola.marca = marca;
+                msg(bola.mostrar(nome, tamanho, qtGomos));
+                break;
+            default:
+                break;
+
+        }
+    }//GEN-LAST:event_btnBrinquedoActionPerformed
+
+    private void cmbFaixaBrinquedoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbFaixaBrinquedoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbFaixaBrinquedoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -191,13 +340,26 @@ public class formEx1 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAnimal;
+    private javax.swing.JButton btnBrinquedo;
+    private javax.swing.JComboBox<String> cmbFaixaBrinquedo;
+    private javax.swing.JComboBox<String> cmbQtdGomos;
+    private javax.swing.JComboBox<String> cmbTamanhoBrinquedo;
     private javax.swing.JComboBox<String> cmbTipo;
+    private javax.swing.JComboBox<String> cmbTipoBrinquedo;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField txtIdade;
+    private javax.swing.JTextField txtMarcaBrinquedo;
     private javax.swing.JTextField txtNome;
+    private javax.swing.JTextField txtNomeBrinquedo;
     private javax.swing.JTextField txtRaca;
     // End of variables declaration//GEN-END:variables
 }
