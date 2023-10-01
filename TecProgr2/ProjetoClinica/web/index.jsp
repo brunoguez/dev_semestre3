@@ -1,13 +1,14 @@
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-        <title>Clínica Bruno</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <%@ include file="estilos.jsp" %>
+        <title>JSP Page</title>
     </head>
     <body>
-        <h1>Clínica - Bruno Marques Guêz</h1>
+        <h2>Clínica - Bruno Marques Guêz</h2>
         <ul>
             <li><a href="medico.jsp">Médicos</a></li>
             <li><a href="especialidade.jsp">Especialidades</a></li>
