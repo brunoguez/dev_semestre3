@@ -160,7 +160,7 @@ public class FrmDeposito extends javax.swing.JFrame {
         @Override
         public void calcular(int valor, int meses) {
             double calculo = valor * Math.pow((1 + 0.007), meses);
-            formEx1.msg("O montante gerado na Poupança pelo capital de R$" + valor + " em 6 meses é de R$" + df.format(calculo));
+            formEx1.msg("O montante gerado na Poupança pelo capital de R$" + valor + " em "+ meses +" meses é de R$" + df.format(calculo));
         }
     }
 
@@ -169,7 +169,7 @@ public class FrmDeposito extends javax.swing.JFrame {
         @Override
         public void calcular(int valor, int meses) {
             double calculo = valor * Math.pow((1 + 0.0075), meses);
-            formEx1.msg("O montante gerado no Fundo pelo capital de R$" + valor + " em 6 meses é de R$" + df.format(calculo));
+            formEx1.msg("O montante gerado no Fundo pelo capital de R$" + valor + " em "+ meses +" meses é de R$" + df.format(calculo));
         }
     }
 

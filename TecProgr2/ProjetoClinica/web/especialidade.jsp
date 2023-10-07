@@ -116,7 +116,7 @@
                 st = new Conn().conectar().createStatement();
                 rs = st.executeQuery("select * from especialidade");
 
-                out.println("<table><tr>");
+                out.println("<table class='table'><tr>");
                 out.println("<td class=\"p-2 border\"><b>Nome da especialidade</b></td>");
                 out.println("<td class=\"p-2 border\"><b>Status</b></td>");
                 out.println("<td class=\"p-2\"></td></tr>");
