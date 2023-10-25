@@ -186,7 +186,7 @@
                 </select>
             </div>
             <input class="btn btn-primary" type="submit" name="<%= tipo%>" value="<%= tipoText%>">
-            <button type="button" class="btn btn-outline-primary" onclick="window.location.href = 'index.jsp'">Voltar</button>
+            <button type="button" class="btn btn-outline-primary" onclick="window.location.href = 'cadastro.jsp'">Voltar</button>
             <br>  
         </form>
         <br>
