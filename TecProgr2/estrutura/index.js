@@ -3,13 +3,18 @@ const app = express();
 const handlebars = require('express-handlebars');
 const bodyParser = require('body-parser');
 const Post = require('./models/post');
+const moment = require('moment');
 
 //carregando o cabeçalho do html em outras páginas
-app.engine('handlebars', handlebars.engine({ defaultLayout: 'main' }));
+app.engine('handlebars', handlebars.engine({
+    defaultLayout: 'main',
+    helpers: {
+        formatDate: (date) => moment(date).format('DD/MM/YYYY HH:mm'),
+    }
+}));
 app.set('view engine', 'handlebars');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
 app.use(express.static(__dirname + "/public"));
 
 //rota principal

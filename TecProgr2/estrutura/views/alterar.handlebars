@@ -1,12 +1,24 @@
-<form action="/update" method="POST">
+<form class="was-validated" action="/update" method="POST">
+    <h1 class="text-center">Alterar post</h1>
     {{#each posts}}
-    <p>Código: </p>
-    <input type="text" name="id" value="{{id}}" readonly="true">
-    <p>Titulo: </p>
-    <input type="text" name="titulo" value="{{titulo}}">
-    <p>Conteúdo:</p>
-    <textarea name="conteudo">{{conteudo}}</textarea><br>
-    <input type="submit" value="Alterar">
-    <hr>
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">Código</span>
+        <input type="text" class="form-control" placeholder="Código" aria-label="Código" aria-describedby="basic-addon1"
+            name="id" value="{{id}}" readonly="true">
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">Título</span>
+        <input type="text" class="form-control" placeholder="Título" aria-label="Título" aria-describedby="basic-addon1"
+            name="titulo" value="{{titulo}}" required>
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">Conteúdo</span>
+        <textarea class="form-control" aria-label="With textarea" placeholder="Conteúdo" name="conteudo"
+            required>{{conteudo}}</textarea>
+    </div>
+    <button type="button" class="btn btn-outline-primary" onclick="window.location.href = '/';"><i
+            class="fas fa-arrow-left" style="margin-right: 7px;"></i>Voltar</button>
+    <button class="btn btn-success" value="Alterar"><i class="fas fa-save"
+            style="margin-right: 7px;"></i>Alterar</button>
     {{/each}}
 </form>
