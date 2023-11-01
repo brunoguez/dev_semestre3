@@ -3,10 +3,10 @@ const express = require('express');
 const router = express.Router();
 const Usuario = require('../models/Usuario');
 router.get('/login', (req, res) => {
-    res.render('./auth/login');
+    res.render('./auth/login', { isAuthPage: true });
 });
 router.get('/register', (req, res) => {
-    res.render('./auth/singup');
+    res.render('./auth/singup', { isAuthPage: true });
 })
 router.post('/register', (req, res) => {
     Usuario.create({
@@ -29,7 +29,7 @@ router.post('/login', async (req, res) => {
             delete req.session.returnTo;
             res.redirect(returnTo);
         } else {
-            res.render('/auth/login', { error: 'Credenciais inválidas' });
+            res.render('/auth/login', { error: 'Credenciais inválidas', isAuthPage: true });
         }
     } catch (error) {
         console.error(error);

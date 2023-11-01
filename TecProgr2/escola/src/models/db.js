@@ -10,3 +10,6 @@ module.exports = {
     Sequelize: Sequelize,
     sequelize: sequelize
 }
+
+//sequelize.sync()
+

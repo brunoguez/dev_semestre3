@@ -3,11 +3,12 @@ const express = require('express');
 const router = express.Router();
 //vamos carregar nosso modelo 
 const Turma = require("../models/Turma");
+const verificarAutenticacao = require('../middleware/VerificarAutenticacao');
 
 /*_____________ Rotas da Turma __________________ */
 
 /*2°) Abre e carrega todas informações de turmas no formulário turma.handlebars */
-router.get('/turma', (req, res) => {
+router.get('/turma',verificarAutenticacao, (req, res) => {
     Turma.findAll().then((turmas) => {
         turmas = turmas.map((turma) => {
             return turma.toJSON();
@@ -17,12 +18,12 @@ router.get('/turma', (req, res) => {
 });
 
 /*3°) Abre o Formulário addturma.handlebars */
-router.get('/turma/add', (req, res) => {
+router.get('/turma/add',verificarAutenticacao, (req, res) => {
     res.render("admin/turma/addturma");
 });
 
 /*4°) Abre e preenche o formulário editturma.handlebars com informações do id passado */
-router.get('/editar_turma/:id', (req, res) => {
+router.get('/editar_turma/:id',verificarAutenticacao, (req, res) => {
     console.log('teste1',req.params.id)
 
     Turma.findAll({ where: { 'id_turma': req.params.id } }).then((turmas) => {
@@ -33,7 +34,7 @@ router.get('/editar_turma/:id', (req, res) => {
 
 /*5°) Recebe as informações do botão que está no addturma.handlebar
 e efetua o cadastro no banco de dados, depois ele volta para a listagem das turmas*/
-router.post('/turma/nova', (req, res) => {
+router.post('/turma/nova',verificarAutenticacao, (req, res) => {
     Turma.create({
         descricao: req.body.descricao
     }).then(() => {
@@ -45,7 +46,7 @@ router.post('/turma/nova', (req, res) => {
 
 /*6°) Recebe as informações do botão que está no editturma.handlebar
 e efetua a alteração no banco de dados. Volta para listagem das turmas*/
-router.post('/turma/editar_turma', (req, res) => {
+router.post('/turma/editar_turma',verificarAutenticacao, (req, res) => {
     Turma.update({
         descricao: req.body.descricao
     },
@@ -60,7 +61,7 @@ router.post('/turma/editar_turma', (req, res) => {
 
 /*7°) No form turma.handlebars que lista as turmas possui um botão para deletar
 Ele deleta informação e refaz a lista no turma.handlebars*/
-router.get('/deletar_turma/:id', (req, res) => {
+router.get('/deletar_turma/:id',verificarAutenticacao, (req, res) => {
     Turma.destroy({ where: { 'id_turma': req.params.id } }).then(() => {
         res.redirect("/rota_turma/turma");
     }).catch((err) => {

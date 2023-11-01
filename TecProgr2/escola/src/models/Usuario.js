@@ -17,4 +17,6 @@ const Usuario = db.sequelize.define('usuario', {
     }
     //freezeTableName: true define
     //o nome da tabela sem o S
-}, { freezeTableName: true })
+}, { freezeTableName: true });
+
+module.exports = Usuario;

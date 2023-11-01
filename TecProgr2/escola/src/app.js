@@ -8,7 +8,7 @@ const rota_auth = require('./routes/rota_auth');
 const session = require('express-session');
 
 app.use(session({
-    secret: 'seuSegredo',
+    secret: 'fatecBruno',
     resave: false,
     saveUninitialized: true
 }));
@@ -16,6 +16,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.engine('handlebars', handlebars.engine({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
+app.use(express.static(__dirname + "/public"));
 
 app.get('/', (req, res) => {
     res.render('home');
